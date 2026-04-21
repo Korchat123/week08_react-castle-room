@@ -6,8 +6,6 @@ return(
     <p className="text-purple-300">
         {text}
    </p>
-      
-   
    <textarea
       onChange={handleQuestion}
       value={question} 
