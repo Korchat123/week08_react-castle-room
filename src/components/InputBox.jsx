@@ -1,20 +1,23 @@
 
-export default function Inputbox({handleQuestion,question,question2}){
+export default function Inputbox({handleQuestion,question,question2,text,text2}){
 return( 
 
-    <div className="pb-50 py-10 gap-y-4 flex flex-col justify-center w-full items-center h-full bg-gray-800 text-white">
+    <div className="pb-[10vh] py-[10vh] gap-y-4 flex flex-col justify-center w-full items-center h-full bg-gray-800 text-white">
     <p className="text-purple-300">
-      Message for JSD 12
-      <span className="text-yellow-300">
-
-      </span>
+        {text}
    </p>
+      
+   
    <textarea
       onChange={handleQuestion}
       value={question} 
       className="bg-white text-black rounded px-2 py-1" 
       placeholder="TYPE your message...."/>
-    <p> {question2}</p> 
+
+    <span className="text-yellow-300">
+        {question2}
+      </span>  
+    <p> {text2}</p> 
  </div>
    )
 

@@ -13,8 +13,21 @@ const handleQuestion2=(e)=>{
 setQuestion2(e.target.value)
 };
 
-const Inputoutside=<Inputbox handleQuestion={handleQuestion} question={question} question2={question2?question2:"wait for message from secret room"}></Inputbox>;
-const Inputinside=<Inputbox handleQuestion={handleQuestion2} question={question2} question2={question?question:"wait for message from outside"}></Inputbox>;
+const Inputoutside=<Inputbox handleQuestion={handleQuestion} 
+                              question={question} 
+                              text="message to Secretroom : "
+                              question2={question2?question2:"wait for message from secret room"}
+                              text2={question?question:"send message to secret room"}
+                              >
+                                 
+                     </Inputbox>;
+const Inputinside=<Inputbox handleQuestion={handleQuestion2} 
+                              question={question2} 
+                              text="message to Outside : "
+                              question2={question?question:"wait for message from outside"}
+                              text2={question2?question2:"reply message to outside"}
+                              >         
+                     </Inputbox>;
 
 
    return (
@@ -22,7 +35,8 @@ const Inputinside=<Inputbox handleQuestion={handleQuestion2} question={question2
 
 <>
 {Inputoutside}
-<Castle Inside={question} Inputbox={Inputinside}></Castle>
+
+<Castle Inputbox={Inputinside}></Castle>
 </>
  
    );
