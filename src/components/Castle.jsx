@@ -14,7 +14,7 @@ export default function Castle(Inside) {
  function callDiv(arrayCard,index){
       const inClassName=arrayCard[index].tailDetail;
 
-      if(arrayCard[index+1]!=null){
+      if(arrayCard[index+1]){
         
          return(<div className={inClassName}><h1>{arrayCard[index].name} </h1>{callDiv(arrayCard,index+1)}</div>)
       }
