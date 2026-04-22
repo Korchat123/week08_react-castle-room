@@ -7,6 +7,8 @@ export default function App() {
 
 
    const [show,setShow]= useState("hidden");
+   const [pokemonList, setPokemonList] = useState([]);
+   const [isMoved, setIsMoved] = useState(false);
 
 const [question,setQuestion]= useState("");
 const handleQuestion=(e)=>{
@@ -51,8 +53,39 @@ const InsideInput=<Inputbox handleQuestion={handleAnswer}
 
 <>
 {OutsideInput}
-<SecretBox show={show} levelOfCastle={7}/>
-<Castle Inputbox={InsideInput}/>
+
+<div className="flex flex-col items-center my-4">
+    {pokemonList.length === 9 && !isMoved && (
+        <button 
+            onClick={() => setIsMoved(true)}
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-all transform hover:scale-105"
+        >
+            🏰 Move Pokemons to Castle Rooms!
+        </button>
+    )}
+    {isMoved && (
+        <button 
+            onClick={() => { setIsMoved(false); setPokemonList([]); }}
+            className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition-all"
+        >
+            Reset Castle
+        </button>
+    )}
+</div>
+
+<SecretBox 
+    show={show} 
+    levelOfCastle={9} 
+    pokemonList={pokemonList} 
+    setPokemonList={setPokemonList}
+    isMoved={isMoved}
+/>
+
+<Castle 
+    Inputbox={InsideInput} 
+    pokemonList={pokemonList} 
+    isMoved={isMoved}
+/>
 </>
  
    );

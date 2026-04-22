@@ -12,7 +12,12 @@ export default function SecretBox(controlSB) {
     }
 
     const removePokemon = (indexToRemove) => {
-        setPokemonList(prevList => prevList.filter((_, index) => index !== indexToRemove));
+        setPokemonList(prevList =>{ 
+           console.log(prevList);
+           return prevList.filter((_, index) => index !== indexToRemove)
+           //console.log(prevList);
+
+        });
     }
 
     const addPokemon = async () => {
