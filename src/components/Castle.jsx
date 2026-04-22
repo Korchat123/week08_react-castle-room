@@ -2,23 +2,22 @@ export default function Castle(Inside) {
   const arrCard=[];
 
    class card{
-    constructor(name,tailDetail){
+    constructor(name,color){
           this.name=name;
-          this.tailDetail=`flex flex-col justify-center text-white items-center px-10 py-10 pb-0 ${tailDetail} w-full`;
+          this.tailwindDetail=`flex flex-col justify-center text-white items-center px-10 py-10 pb-0 ${color} w-full`;
         arrCard.push(this);
     }
   }
 
-
-
- function callDiv(arrayCard,index){
-      const inClassName=arrayCard[index].tailDetail;
+ function createInsideDiv(arrayCard,index){
+      const inClassName=arrayCard[index].tailwindDetail;
 
       if(arrayCard[index+1]){
         
-         return(<div className={inClassName}><h1>{arrayCard[index].name} </h1>{callDiv(arrayCard,index+1)}</div>)
+         return(<div className={inClassName}><h1>{arrayCard[index].name} </h1>{createInsideDiv(arrayCard,index+1)}</div>)
       }
-        else{console.log({Inside});
+        else{
+          //console.log({Inside});
       return(<div className={inClassName}><h1>{ arrayCard[index].name}</h1> <div>{Inside.Inputbox}</div></div>)
     }
     }
@@ -33,7 +32,7 @@ const corridor =new card("Corridor","bg-blue-500");
 const gallery =new card("Gallery","bg-purple-300");
 const nook =new card("Nook","bg-purple-500");
 const secretRoom =new card("SecretRoom","bg-gray-600");
- const output= callDiv(arrCard,0);
+ const output= createInsideDiv(arrCard,0);
 //console.log(output);
    return (
     <>
